@@ -1,5 +1,5 @@
 const request = require('request');
-const Players = require('./structures/Players.js');
+const Players = require('./structures/PlayersInfo.js');
 const ServerInfo = require('./structures/ServerInfo.js');
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
 		getPlayersInfo() {
 			return new Promise((resolve, reject) => {
 				this._fetchPlayers()
-					.then(players => resolve(new Players(players)))
+					.then(players => resolve(new Players(this.serverIp, players)))
 					.catch(error => reject(error));
 			});
 		}
@@ -21,7 +21,7 @@ module.exports = {
 		getServerInfo() {
 			return new Promise((resolve, reject) => {
 				this._fetchInfo()
-					.then(serverInfo => resolve(new ServerInfo(serverInfo)))
+					.then(serverInfo => resolve(new ServerInfo(this.serverIp, serverInfo)))
 					.catch(error => reject(error));
 			});
 		}
@@ -33,7 +33,7 @@ module.exports = {
 					json: true
 				}, (error, response, body) => {
 					if(!error && body && response.statusCode == 200) resolve(body) 
-					else reject(new Error(error));
+					else reject(error);
 				});
 			});
 		}
@@ -45,7 +45,7 @@ module.exports = {
 					json: true
 				}, (error, response, body) => {
 					if(!error && body && response.statusCode == 200) resolve(body) 
-					else reject(new Error(error));
+					else reject(error);
 				});
 			});
 		}

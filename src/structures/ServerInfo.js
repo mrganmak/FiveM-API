@@ -1,5 +1,8 @@
+const request = require('request');
+
 module.exports = class ServerInfo {
-	constructor(serverInfo) {
+	constructor(serverIp, serverInfo) {
+		this._serverIp = serverIp;
 		this._serverInfo = serverInfo;
 	}
 
@@ -26,11 +29,35 @@ module.exports = class ServerInfo {
 		return this._serverInfo.vars.sv_scriptHookAllowed;
 	}
 
-	getlicenseKeyToken() {
+	getLicenseKeyToken() {
 		return this._serverInfo.vars.sv_licenseKeyToken;
 	}
 
 	getVersion() {
 		return this._serverInfo.version;
+	}
+
+	updateInfo() {
+		return new Promise((resolve, reject) => {
+			this._fetchInfo()
+				.then(serverInfo => {
+					this._serverInfo = serverInfo;
+
+					resolve('done');
+				})
+				.catch(error => reject(error));
+		});
+	}
+
+	_fetchInfo() {
+		return new Promise((resolve, reject) => {
+			request({
+				url: `http://${this._serverIp}/info.json`,
+				json: true
+			}, (error, response, body) => {
+				if(!error && body && response.statusCode == 200) resolve(body) 
+				else reject(error);
+			});
+		});
 	}
 }
