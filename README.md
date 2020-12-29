@@ -7,8 +7,8 @@
 ## Usage
 Get current online
 ```js
-const FiveM = require('./src/index.js'); // Import npm.
-const server = new FiveM.server('194.67.204.70:30120'); //Create new server with ip and port.
+const FiveM = require('fivem-api.js'); // Import npm.
+const server = new FiveM.server('000.00.000.00:30120'); //Create new server with ip and port.
 
 (async function() {
 	const serverInfo = await server.getServerInfo(); //Get server info.
@@ -19,8 +19,8 @@ const server = new FiveM.server('194.67.204.70:30120'); //Create new server with
 
 Get all server resources
 ```js
-const FiveM = require('./src/index.js'); // Import npm.
-const server = new FiveM.server('194.67.204.70:30120'); //Create new server with ip and port.
+const FiveM = require('fivem-api.js'); // Import npm.
+const server = new FiveM.server('000.00.000.00:30120'); //Create new server with ip and port.
 
 (async function() {
 	const playersInfo = await server.getPlayersInfo(); //Get players info.
