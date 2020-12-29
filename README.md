@@ -29,6 +29,22 @@ const server = new FiveM.server('000.00.000.00:30120'); //Create new server with
 })();
 ```
 
+Update info
+```js
+const FiveM = require('fivem-api.js'); // Import npm.
+const server = new FiveM.server('194.67.204.70:30120'); //Create new server with ip and port.
+
+(async function() {
+	const serverInfo = await server.getServerInfo(); //Get server info.
+
+	console.log(serverInfo.getResources()); //Get and log resources.
+
+	await serverInfo.updateInfo(); // Update info (the same function is used for PlayersInfo)
+
+	console.log(serverInfo.getResources()); //Now we have updated info
+})();
+```
+
 ## All functions
   **index**
   - getPlayersInfo - return PlayersInfo class
@@ -37,8 +53,8 @@ const server = new FiveM.server('000.00.000.00:30120'); //Create new server with
   **PlayersInfo**
   - getOnline - return current online (number)
   - getPlayersList - return players list (object)
-  - getDiscordIdentifier - return discord id of all users (object)
-  - updateInfo - updates information about players
+  - getDiscordIdentifier(opts) - return discord id of all users (object)
+  - updateInfo - updates information about players (Promise)
   
   **ServerInfo**
   - getResources - return all server resources (array)
@@ -48,3 +64,6 @@ const server = new FiveM.server('000.00.000.00:30120'); //Create new server with
   - hasScriptHookAllowed - return server scriptHookAllowed status (boolean)
   - getLicenseKeyToken - return server license key token (string)
   - getVersion - return server version (number)
+  - updateInfo - updates information about server (Promise)
+## GetDiscordIdentifier opts
+  - deleteUndefined = boolean - if this option have a true value, all users with undefined id will be skipped
