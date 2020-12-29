@@ -1,7 +1,7 @@
 # FiveM-API
 ## Installation 
 ```
-  npm i fivem --save
+  npm i fivem-api.js --save
 ```
 
 ## Usage
