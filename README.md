@@ -17,7 +17,7 @@ const server = new FiveM.server('194.67.204.70:30120'); //Create new server with
 })();
 ```
 
-Get all serve resources
+Get all server resources
 ```js
 const FiveM = require('./src/index.js'); // Import npm.
 const server = new FiveM.server('194.67.204.70:30120'); //Create new server with ip and port.
@@ -31,20 +31,20 @@ const server = new FiveM.server('194.67.204.70:30120'); //Create new server with
 
 ## All functions
   **index**
-  getPlayersInfo - return PlayersInfo class
-  getServerInfo - return ServerInfo class
+  - getPlayersInfo - return PlayersInfo class
+  - getServerInfo - return ServerInfo class
   
   **PlayersInfo**
-  getOnline - return current online (number)
-  getPlayersList - return players list (object)
-  getDiscordIdentifier - return discord id of all users (object)
-  updateInfo - updates information about players
+  - getOnline - return current online (number)
+  - getPlayersList - return players list (object)
+  - getDiscordIdentifier - return discord id of all users (object)
+  - updateInfo - updates information about players
   
   **ServerInfo**
-  getResources - return all server resources (array)
-  getBaner - return server banners (object)
-  getMaxClients - return server max client count (number)
-  getTags - return all server tags (string)
-  hasScriptHookAllowed - return server scriptHookAllowed status (boolean)
-  getLicenseKeyToken - return server license key token (string)
-  getVersion - return server version (number)
+  - getResources - return all server resources (array)
+  - getBaner - return server banners (object)
+  - getMaxClients - return server max client count (number)
+  - getTags - return all server tags (string)
+  - hasScriptHookAllowed - return server scriptHookAllowed status (boolean)
+  - getLicenseKeyToken - return server license key token (string)
+  - getVersion - return server version (number)
