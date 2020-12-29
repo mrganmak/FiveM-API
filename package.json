@@ -1,5 +1,5 @@
 {
-  "name": "fivem-api",
+  "name": "fivem-api.js",
   "version": "1.0.0",
   "description": "api helper for FiveM",
   "main": "./src/index.js",
