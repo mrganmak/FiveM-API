@@ -1,6 +1,6 @@
 {
   "name": "fivem-api.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "api helper for FiveM",
   "main": "./src/index.js",
   "dependencies": {
