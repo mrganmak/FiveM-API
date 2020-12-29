@@ -1,5 +1,5 @@
 const request = require('request');
-const Players = require('./structures/PlayersInfo.js');
+const PlayersInfo = require('./structures/PlayersInfo.js');
 const ServerInfo = require('./structures/ServerInfo.js');
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
 		getPlayersInfo() {
 			return new Promise((resolve, reject) => {
 				this._fetchPlayers()
-					.then(players => resolve(new Players(this.serverIp, players)))
+					.then(players => resolve(new PlayersInfo(this.serverIp, players)))
 					.catch(error => reject(error));
 			});
 		}

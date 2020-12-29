@@ -1,6 +1,6 @@
 const request = require('request');
 
-module.exports = class Players {
+module.exports = class PlayersInfo {
 	constructor(serverIp, playersList) {
 		this._serverIp = serverIp;
 		this._playersList = playersList;
